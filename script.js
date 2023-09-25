@@ -1,7 +1,21 @@
 const keywordInput = document.getElementById("keywordInput");
 const suggestionsContainer = document.getElementById("suggestions");
 
-const keywords = ["SELECT", "CREATE", "INSERT", "DELETE", "UPDATE", "FROM", "WHERE", "VALUES", "DROP", "TABLE"];
+const keywords = [
+	"USE",
+	"SELECT",
+	"CREATE",
+	"INSERT",
+	"INTO",
+	"DELETE",
+	"UPDATE",
+	"SET",
+	"FROM",
+	"WHERE",
+	"VALUES",
+	"DROP",
+	"TABLE",
+];
 
 function updateSuggestions() {
 	const inputText = keywordInput.value.trim();
@@ -15,12 +29,14 @@ function updateSuggestions() {
 	const lastWord = inputText.split(" ").pop().toUpperCase();
 
 	let filteredKeywords = keywords.filter((keyword) => keyword.startsWith(lastWord));
-	filteredKeywords = filteredKeywords.map((keyword) => `<div class="suggestion">${keyword}</div>`).join("");
+	filteredKeywords = filteredKeywords
+		.map((keyword) => `<div class="suggestion" style="display: flex;">${keyword}</div>`)
+		.join("");
 
 	suggestionsContainer.innerHTML = filteredKeywords;
 
 	if (filteredKeywords) {
-		suggestionsContainer.style.display = "block";
+		suggestionsContainer.style.display = "flex";
 	} else {
 		suggestionsContainer.style.display = "none";
 	}

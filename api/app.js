@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 
 // MySQL
 var con = mysql.createConnection({
-	host: "",
-	user: "",
-	password: "",
-	database: "",
+	host: "localhost",
+	user: "root",
+	password: "root",
+	database: "gagel",
 });
 
 //Get MySQL Response
